@@ -69,6 +69,7 @@ body{
   font-family: "Roboto", "Arial", sans-serif;
   background-color:#fff;
   color: var(--tetx-color);
+  overflow-x: hidden;
 }
 
 img{
@@ -259,7 +260,19 @@ img{
   margin-bottom: 34px;
 }
 
+.hero-image-wrapper{
+  position: relative;
+}
+
+.hero-img-badge{
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50% );
+}
+
 .hero-img {
+  display: block;
   width: 710px;
   height: 596px;
   object-fit: cover;
@@ -275,9 +288,29 @@ img{
 }
 
 .index-collection-inner {
+  position: relative;
   padding: 50px 143px;
   background-color: var(--light-bg);
   background-image: url(/img/collection-bg.jpg);
+}
+
+.index-collection-leaves-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.index-collection-leaves-right {
+  position: absolute;
+  right: -350px;
+  top: 685px;
+}
+
+.index-collection-leaves-left-light {
+  position: absolute;
+  bottom: 170px;
+  left: -216px;
 }
 
 .index-collection-heading {
@@ -420,6 +453,7 @@ img{
 /* HOW IT WORKS */
 
 .how-it-works-inner {
+  position: relative;
   background-color:var(--accent-color-green);
   background-image:url(../img/green-bg.jpg);
   padding: 50px 30px;
@@ -447,7 +481,8 @@ img{
   counter-reset: how-it-works;
 }
 
-.how-it-works-item { 
+.how-it-works-item {
+  position: relative; 
   display: flex;
   flex-direction: column;
   width: calc(100% / 3 -20px);
@@ -456,6 +491,8 @@ img{
 }
 
 .how-it-works-item::before{
+  position: relative;
+  z-index: 2;
   width: 60px;
   height: 60px;
   border: 4px solid var(--accent-color-light-brown);
@@ -463,6 +500,22 @@ img{
   background-color:var(--light-bg);
   content: "";
 }
+
+.how-it-works-item:not(:last-child)::after{
+  position: absolute;
+  left: 60px;
+  top: 30px;
+  height: 3px;
+  width: 433px;
+  background-image:url(../img/brown-dasheed-stroke.svg);
+  background-repeat:no-repeat;
+  content:"";
+}
+
+.how-it-works-item:last-child::after{
+  display: none;
+}
+
 
 .how-it-works-info { 
   flex-grow: 1  ;
@@ -499,6 +552,12 @@ img{
 
 .how-it-works-cta:focus{
   outline-color: var(--accent-color-light-brown);
+}
+
+.how-it-works-sticker{
+  position: absolute;
+  right: 70px;
+  top: 42px;
 }
 
 /* SITE FOOTER */
